@@ -92,6 +92,7 @@ def _image_layer_impl(
         # A target with runtime suffix `container` is always emitted by default.
         # See [docs](/docs/tutorials/helper-buck-targets#imagelayer).
         runtime = None,
+        use_target_platform = True,
         visibility = None):
     runtime = runtime or []
     if "container" not in runtime:
@@ -193,6 +194,7 @@ def _image_layer_impl(
         # the docs for BuildRule::isCacheable.
         cacheable = False,
         flavor_config = _flavor_config,
+        use_target_platform = use_target_platform,
         type = _rule_type,  # For queries
         visibility = visibility,
         antlir_rule = antlir_rule,
